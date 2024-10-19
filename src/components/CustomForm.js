@@ -16,7 +16,6 @@ const CustomForm = ({ title, formData, register, errors, aling }) => {
                 )
             }
 
-            
 
             <input
               {...register(field.name, { required: field.isRequired })}

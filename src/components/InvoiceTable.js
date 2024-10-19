@@ -1,5 +1,6 @@
 import React, { useState } from 'react';// Asegúrate de ajustar la ruta según sea necesario
 import TotalsTable from './TotalsTable ';
+import { AiFillDelete } from "react-icons/ai";
 
 const InvoiceTable = ({ invoices, register, errors }) => {
   const [products, setProducts] = useState([{ id: '', description: '', quantity: '', price: '' }]);
@@ -66,9 +67,9 @@ const InvoiceTable = ({ invoices, register, errors }) => {
               <td className="absolute right-0 p-1">
                 <button
                   onClick={() => handleDeleteRow(rowIndex)}
-                  className="absolute right-0 p-1 bg-red-500 text-white opacity-0 group-hover/edit:opacity-100 transition-opacity duration-300"
+                  className="absolute right-0 p-1 rounded-full bg-[#ff5c35] text-white opacity-0 group-hover/edit:opacity-100 transition-opacity duration-300"
                 >
-                  Eliminar
+                  <AiFillDelete />
                 </button>
 
               </td>
