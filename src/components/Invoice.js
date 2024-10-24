@@ -8,7 +8,7 @@ export const Invoice = () => {
         </h1>
 
         <div className='md:px-28 text-lg md:text-1xl  leading-8'>
-          Tired of manually creating invoices? Say hello to HubSpot's free online Invoice Generator! Make professional invoices that showcase your brand and impress your customers. Then, manage your invoice with the HubSpot invoice integration. 
+          Tired of manually creating invoices? Say hello to HubSpot&apos;s free online Invoice Generator! Make professional invoices that showcase your brand and impress your customers. Then, manage your invoice with the HubSpot invoice integration. 
         </div>
     </div>
   )

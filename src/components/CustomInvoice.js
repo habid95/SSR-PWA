@@ -25,7 +25,7 @@ export const CustomInvoice = () => {
                 </p>
 
                 <p className='text-lg text-[#5c6f80]'>
-                Whether you're a small business owner or an enterprise, Invoice Generator allows you to effortlessly generate professional invoices to impress your clients. 
+                Whether you&apos;re a small business owner or an enterprise, Invoice Generator allows you to effortlessly generate professional invoices to impress your clients. 
                 <span>Focus on what you do best and leave the invoicing design to us.</span>
                 </p>
 
