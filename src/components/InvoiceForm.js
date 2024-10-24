@@ -55,58 +55,62 @@ const InvoiceForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className=''>
-      <div id="invoice" className="invoice-template pt-11">
-        <div className="grid grid-cols-1 md:grid-cols-2 items-center">
+    <div className=''>
+      <form onSubmit={handleSubmit(onSubmit)} className=' mx-auto  flex flex-col w-4/5 md:w-3/5 p-10'>
+        <div id="invoice" className="invoice-template  rounded-lg p-5 m-4 shadow-lg mt-10 bg-white">
+          <div className="grid grid-cols-1 md:grid-cols-2 items-center">
 
-          <div className="flex flex-col pl-4 items-center md:items-start">
-            <label className="cursor-pointer text-center">
-              {companyLogo ? (
-                <Image src={companyLogo} alt="logo-empresa" height={150} width={150} layout="intrinsic" />
-              ) : (
-                <p>Logo</p>
-              )}
-              <input
-                type="file"
-                accept="image/*"
-                {
-                  ...register('companyLogo', {
-                    required: 'La imagen es requerida.',
-                    onChange: (e) => handleImageChange(e),
-                  })
-                }
-                className="hidden"
-              />
-            </label>
-            {errors['companyLogo'] && <p className="text-red-500">{errors['companyLogo'].message}</p>} {/* Mensaje de error */}
+            <div className="flex flex-col pl-4 items-center md:items-start">
+              <label className="cursor-pointer text-center">
+                {companyLogo ? (
+                  <Image src={companyLogo} alt="logo-empresa" height={150} width={150} layout="intrinsic" />
+                ) : (
+                  <p>Logo</p>
+                )}
+                <input
+                  type="file"
+                  accept="image/*"
+                  {
+                    ...register('companyLogo', {
+                      required: 'La imagen es requerida.',
+                      onChange: (e) => handleImageChange(e),
+                    })
+                  }
+                  className="hidden"
+                />
+              </label>
+              {errors['companyLogo'] && <p className="text-red-500">{errors['companyLogo'].message}</p>} {/* Mensaje de error */}
+            </div>
+
+            <Suspense fallback={<div>Cargando...</div>}>
+              <CustomForm aling="md:text-right" formData={companyFields} register={register} errors={errors} />
+            </Suspense>
+            
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 items-center mt-8">
+            <Suspense fallback={<div>Cargando...</div>}>
+              <CustomForm title="Datos Cliente: " aling="md:text-left" formData={clientFields} register={register} errors={errors} />
+            </Suspense>
+            
+            <Suspense fallback={<div>Cargando...</div>}>
+              <CustomForm aling="md:text-left" formData={InvoiceFields} register={register} errors={errors} />
+            </Suspense>
           </div>
 
           <Suspense fallback={<div>Cargando...</div>}>
-            <CustomForm aling="md:text-right" formData={companyFields} register={register} errors={errors} />
+            <InvoiceTable invoices={invoicesData} register={register} errors={errors} />
           </Suspense>
-          
+        
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 items-center mt-8">
-          <Suspense fallback={<div>Cargando...</div>}>
-            <CustomForm title="Datos Cliente: " aling="md:text-left" formData={clientFields} register={register} errors={errors} />
-          </Suspense>
-          
-          <Suspense fallback={<div>Cargando...</div>}>
-            <CustomForm aling="md:text-left" formData={InvoiceFields} register={register} errors={errors} />
-          </Suspense>
+        <div className='flex w-full justify-end'>
+          <button type="submit" className="bg-wihte text-[#ff5c35] border-solid border-2 border-[#ff5c35] hover:bg-[#ffcec2] rounded-md m-4 font-semibold p-3">
+            Download Now
+          </button>
         </div>
-
-        <Suspense fallback={<div>Cargando...</div>}>
-          <InvoiceTable invoices={invoicesData} register={register} errors={errors} />
-        </Suspense>
-      
-      </div>
-
-      <button type="submit" className="bg-[#ff5c35] font-semibold text-black p-2 mt-4">
-        Descargar
-      </button>
-    </form>
+      </form>
+    </div>
   );
 };
 

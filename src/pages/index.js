@@ -1,5 +1,10 @@
 import Head from 'next/head';
 import InvoiceForm from '@/components/InvoiceForm';
+import { Header } from '@/components/Header';
+import { Invoice } from '@/components/Invoice';
+import { HowUse } from '@/components/HowUse';
+import { CustomInvoice } from '@/components/CustomInvoice';
+import { Carrusel } from '@/components/Carrusel';
 
 const Home = () => {
 
@@ -11,11 +16,15 @@ const Home = () => {
         <meta name="description" content="Genera facturas de manera rápida y eficiente." />
         <link rel="manifest" href="/manifest.json" />
       </Head>
-      <div className="w-4/5 md:w-3/5 mx-auto p-5 m-4 rounded-lg shadow-lg mt-10 bg-white">
-        <h1 className="text-xl text-center font-bold">Factura</h1>
-        
+      <main className='bg-[#f6f9fc]'>
+        {/* <Header /> */}
+        <Invoice/>
         <InvoiceForm />
-      </div>
+        <HowUse />
+        <CustomInvoice />
+        <Carrusel/>
+
+      </main>
     </>
   );
 };
